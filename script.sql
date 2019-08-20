@@ -1,0 +1,11 @@
+	
+CREATE DATABASE loja;
+
+use loja;
+
+CREATE TABLE Produtos
+(
+	IdProduto INT PRIMARY KEY AUTO_INCREMENT,
+	Produto VARCHAR(100) NOT NULL,
+	Preco DECIMAL(13,2) NOT NULL
+)
