@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/Produtos2/controller/ProdutoController.php</file>
-            <file>file:/var/www/html/Produtos2/index.php</file>
-            <file>file:/var/www/html/Produtos2/view/produtos/excluir.php</file>
-            <file>file:/var/www/html/Produtos2/controller/Banco.php</file>
-            <file>file:/var/www/html/Produtos2/model/Produto.php</file>
-            <file>file:/var/www/html/Produtos2/view/produtos/editar.php</file>
-            <file>file:/var/www/html/Produtos2/view/produtos/listar.php</file>
-            <file>file:/var/www/html/Produtos2/view/produtos/inserir.php</file>
+            <file>file:/var/www/html/ProjetoProdutos/controller/ProdutoController.php</file>
+            <file>file:/var/www/html/ProjetoProdutos/view/produtos/editar.php</file>
+            <file>file:/var/www/html/ProjetoProdutos/view/produtos/inserir.php</file>
+            <file>file:/var/www/html/ProjetoProdutos/model/Produto.php</file>
         </group>
     </open-files>
 </project-private>

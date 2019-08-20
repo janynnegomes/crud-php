@@ -11,7 +11,7 @@ class ProdutoController extends Banco{
         
         
         $this->conexao =  parent::Conexao();
-        $this->sql = "SELECT `IdProduto`,`Produto`,`Preco`,`txReajuste` "
+        $this->sql = "SELECT `IdProduto`,`Produto`,`Preco` "
                 . "FROM $this->tabela";
         $busca = mysqli_query($this->conexao, $this->sql);
         
@@ -21,7 +21,6 @@ class ProdutoController extends Banco{
             $prod->IdProduto = $dadoProduto["IdProduto"];
             $prod->Produto = $dadoProduto["Produto"];
             $prod->Preco = $dadoProduto["Preco"];
-            $prod->txReajuste = $dadoProduto["txReajuste"];
            
             $listaProdutos[] =  $prod;
         }
@@ -33,7 +32,7 @@ class ProdutoController extends Banco{
      function SelecionarPorID($idProduto){
         
         $this->conexao =  parent::Conexao();
-        $this->sql = "SELECT `IdProduto`,`Produto`,`Preco`,`txReajuste`"
+        $this->sql = "SELECT `IdProduto`,`Produto`,`Preco`"
                 . " FROM $this->tabela WHERE IdProduto = '$idProduto'";
         
         $busca = $this->conexao->query($this->sql);
@@ -45,7 +44,6 @@ class ProdutoController extends Banco{
         $produto->IdProduto = $resultado[0];
         $produto->Produto = $resultado[1];
         $produto->Preco  = $resultado[2];
-        $produto->txReajuste  = $resultado[3];
         
         return $produto;
        
@@ -57,8 +55,7 @@ class ProdutoController extends Banco{
         $this->sql = "INSERT INTO  $this->tabela "
                 . "VALUES(null, "
                 . "'$produto->Produto', "
-                . "'$produto->Preco', "
-                . "'$produto->txReajuste');";
+                . "'$produto->Preco');";
         
        $this->conexao->query( $this->sql); 
        return $this->conexao->insert_id;
@@ -69,8 +66,7 @@ class ProdutoController extends Banco{
         $this->conexao =  parent::Conexao();
         $this->sql = "UPDATE $this->tabela "
                 . "SET `produto`='$produto->Produto',"
-                . "`preco`= '$produto->Preco', "
-                . "`txreajuste`= '$produto->txReajuste' 
+                . "`preco`= '$produto->Preco'  
                     WHERE `IdProduto`= $produto->IdProduto;";
         $this->conexao->query($this->sql);
     }
