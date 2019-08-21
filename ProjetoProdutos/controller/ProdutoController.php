@@ -15,14 +15,10 @@ class ProdutoController extends Banco{
                 . "FROM $this->tabela";
         $busca = mysqli_query($this->conexao, $this->sql);
         
-        while($dadoProduto = mysqli_fetch_array($busca))
-        {
-            $prod = new Produto();
-            $prod->IdProduto = $dadoProduto["IdProduto"];
-            $prod->Produto = $dadoProduto["Produto"];
-            $prod->Preco = $dadoProduto["Preco"];
-           
-            $listaProdutos[] =  $prod;
+        // Ver documentação: https://www.php.net/manual/pt_BR/mysqli-result.fetch-object.php
+        while($dadoProduto = mysqli_fetch_object($busca,'Produto'))
+        {           
+            $listaProdutos[] =  $dadoProduto;
         }
         
         return $listaProdutos;
@@ -37,15 +33,10 @@ class ProdutoController extends Banco{
         
         $busca = $this->conexao->query($this->sql);
         
-        $resultado = mysqli_fetch_row($busca);
+        // Ver documentação: https://www.php.net/manual/pt_BR/mysqli-result.fetch-object.php
+        $resultado = mysqli_fetch_object($busca,'Produto');  
         
-        
-        $produto = new Produto();
-        $produto->IdProduto = $resultado[0];
-        $produto->Produto = $resultado[1];
-        $produto->Preco  = $resultado[2];
-        
-        return $produto;
+        return $resultado;
        
     }
     
